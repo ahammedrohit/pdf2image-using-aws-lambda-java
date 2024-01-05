@@ -28,9 +28,13 @@ Test the lambda function with the following json:
 }
 ```
 
-PS : If the text is not recognized correctly for Japanese, here's a workaround.
+## 構成 Lambda
 
-1. Create the jar file.
-2. inside the jar file navigate here : \org\apache\pdfbox\resources\ttf
-3. Replace the font file(LiberationSans-Regular.ttf) with the one you want to use. (I used IPAexGothic.ttf) But remember to rename it to LiberationSans-Regular.ttf
-4. Upload the jar file to the lambda function.
+* lambda-invoice-pdf-img
+  * PDF請求書ファイルのサムネイル画像を作成
+    * Apache PDFBox-2.0.27 is used for PDF to Image conversion. But sometimes it doesn't recognize the Japanese texts in PDF. 
+    * So, pdfbox-2.0.27.jar is modified as such : 
+      * The fallback font inside the jar is changed from 'LiberationSans-Regular' to 'IPAexGothic' 
+      * The font is located in org/apache/pdfbox/resources/ttf/LiberationSans-Regular.ttf
+      * ipaexg.ttf(IPAexGothic) is renamed to LiberationSans-Regular.ttf
+      * The modified jar is located in libs/pdfbox-2.0.27-with-ipaexg.jar and loaded in maven as system scope dependency.
