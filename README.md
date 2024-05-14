@@ -29,7 +29,6 @@ Test the lambda function with the following json:
 ```
 
 ## 構成 Lambda
-  * PDF請求書ファイルのサムネイル画像を作成
     * Apache PDFBox-2.0.27 is used for PDF to Image conversion. But sometimes it doesn't recognize the Japanese texts in PDF. 
     * So, pdfbox-2.0.27.jar is modified as such : 
       * The fallback font inside the jar is changed from 'LiberationSans-Regular' to 'IPAexGothic' 
